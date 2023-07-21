@@ -1,8 +1,8 @@
-substitutions:
-  name: "br30-flsnt"
+#substitutions:
+#  name: "br30-flsnt"
 
 esphome:
-  name: "${name}"
+  name: "br30-flsnt"
   name_add_mac_suffix: true
   project:
     name: esphome.flsnt-br30
