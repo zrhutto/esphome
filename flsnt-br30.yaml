@@ -1,0 +1,64 @@
+substitutions:
+  name: "flsnt-br30"
+
+esphome:
+  name: "${name}"
+  name_add_mac_suffix: true
+  project:
+    name: esphome.flsnt-br30
+    version: "1.0"
+
+dashboard_import:
+  package_import_url: github://zrhutto/esphome/flsnt-br30.yaml
+
+libretiny:
+  board: wb2l
+  framework:
+    version: latest
+
+logger:
+  #level: "VERY_VERBOSE"
+
+api:
+ota:
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  #domain: !secret wifi_domain
+  ap:
+    ssid: "Bulb Fallback"
+    password: !secret wifi_ap_password
+
+web_server:
+captive_portal:
+
+output:
+ - platform: ledc
+   id: red_output
+   pin: D0
+ - platform: ledc
+   id: green_output
+   pin: D4
+ - platform: ledc
+   id: blue_output
+   pin: D3
+ - platform: ledc
+   id: ct_output1
+   pin: D2
+ - platform: ledc
+   id: ct_output2
+   pin: D1
+
+light:
+ - platform: rgbww
+   restore_mode: RESTORE_DEFAULT_OFF
+   name: "Light"
+   red: red_output
+   green: green_output
+   blue: blue_output
+   warm_white: ct_output1
+   cold_white: ct_output2
+   color_interlock: true
+   cold_white_color_temperature: 153 mireds
+   warm_white_color_temperature: 500 mireds
