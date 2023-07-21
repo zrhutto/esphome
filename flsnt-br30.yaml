@@ -36,16 +36,16 @@ captive_portal:
 output:
  - platform: ledc
    id: red_output
-   pin: D0
+   pin: D2
  - platform: ledc
    id: green_output
-   pin: D4
- - platform: ledc
-   id: blue_output
    pin: D3
  - platform: ledc
+   id: blue_output
+   pin: D4
+ - platform: ledc
    id: ct_output1
-   pin: D2
+   pin: D0
  - platform: ledc
    id: ct_output2
    pin: D1
