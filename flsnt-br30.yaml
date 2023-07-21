@@ -1,5 +1,5 @@
 substitutions:
-  name: "flsnt-br30"
+  name: "br30-flsnt"
 
 esphome:
   name: "${name}"
