@@ -1,8 +1,8 @@
-#substitutions:
-#  name: "plug-sbot"
+substitutions:
+  name: "plug-sbot"
 
 esphome:
-  name: "${display_name}"
+  name: "${name}"
   name_add_mac_suffix: true
   platformio_options:
     board_build.mcu: esp32c3
@@ -31,14 +31,14 @@ ota:
 
 button:
   - platform: safe_mode
-    name: ${display_name} (Safe Mode)
+    name: ${name} (Safe Mode)
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
   #domain: !secret wifi_domain
   ap:
-    ssid: "$display_name} Fallback"
+    ssid: "${name} Fallback"
     password: !secret wifi_ap_password
 
 #  Disable the bluetooth tracker/proxy if they are not needed
@@ -63,20 +63,20 @@ sensor:
     current_resistor: 0.0011
     voltage_divider: 1450
     current:
-      name: ${display_name} Amps
+      name: ${name} Amps
     voltage:
-      name: ${display_name} Volts
+      name: ${name} Volts
     power:
-      name: ${display_name} Watts
+      name: ${name} Watts
       accuracy_decimals: 0       
     energy:
-      name: ${display_name} Energy
+      name: ${name} Energy
     update_interval: 3s
     change_mode_every: 4
 
 switch:
   - platform: gpio
-    name: ${display_name} Relay
+    name: ${name} Relay
     id: relay
     device_class: outlet
     pin: GPIO6
@@ -95,7 +95,7 @@ binary_sensor:
       number: GPIO2
       mode: INPUT_PULLUP
       inverted: true
-    name: ${display_name} Button
+    name: ${name} Button
     filters:
       - delayed_on: 10ms
     on_press:
@@ -105,7 +105,7 @@ binary_sensor:
 light:
   - platform: binary
     internal: true
-    name: ${display_name} White LED
+    name: ${name} White LED
     id: white_led
     output: white_output
     restore_mode: RESTORE_DEFAULT_OFF
