@@ -1,5 +1,5 @@
-substitutions:
-  name: "plug-sbot"
+#substitutions:
+#  name: "plug-sbot"
 
 esphome:
   name: "${name}"
