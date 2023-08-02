@@ -30,7 +30,7 @@ wifi:
   password: !secret wifi_password
   #domain: !secret wifi_domain
   ap:
-    ssid: "${name} Fallback"
+    ssid: "$display_name} Fallback"
     password: !secret wifi_ap_password
 
 #  Disable the bluetooth tracker/proxy if they are not needed
