@@ -24,6 +24,14 @@ esp32:
       CONFIG_BT_BLE_42_FEATURES_SUPPORTED: y
       CONFIG_ESP_TASK_WDT_TIMEOUT_S: "10"    
 
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  #domain: !secret wifi_domain
+  ap:
+    ssid: "${name} Fallback"
+    password: !secret wifi_ap_password
+
 logger:
 api:
 ota:
