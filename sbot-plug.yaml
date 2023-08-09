@@ -12,7 +12,7 @@ esphome:
     board_build.variant: esp32c3
   project:
     name: esphome.sbot-plug
-    version: "1.0"
+    version: "1.1"
 
 esp32:
   variant: ESP32C3
