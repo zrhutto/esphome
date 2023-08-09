@@ -61,6 +61,8 @@ sensor:
       name: ${name} Energy
     update_interval: 3s
     change_mode_every: 4
+  - platform: uptime
+    name: ${name} Uptime
 
 switch:
   - platform: gpio
