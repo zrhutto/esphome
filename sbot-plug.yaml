@@ -1,12 +1,4 @@
-#substitutions:
-#  name: "plug-sbot"
-dashboard_import:
-  package_import_url: github://zrhutto/esphome/sbot-plug.yaml@main
-  import_full_config: false
-
 esphome:
-  name: "plug-sbot"
-  name_add_mac_suffix: true
   platformio_options:
     board_build.mcu: esp32c3
     board_build.variant: esp32c3
