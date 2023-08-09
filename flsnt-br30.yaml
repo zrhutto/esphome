@@ -51,15 +51,18 @@ output:
    id: ct_output2
    pin: D1
 
+sensor:
+  - platform: uptime
+    name: ${name} Uptime
 light:
  - platform: rgbww
    restore_mode: RESTORE_DEFAULT_OFF
-   name: "Light"
+   name: ${name}
    red: red_output
    green: green_output
    blue: blue_output
    warm_white: ct_output1
    cold_white: ct_output2
    color_interlock: true
-   cold_white_color_temperature: 153 mireds
-   warm_white_color_temperature: 370 mireds
+   cold_white_color_temperature: 6500 K
+   warm_white_color_temperature: 2700 K
