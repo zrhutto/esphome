@@ -42,6 +42,7 @@ bluetooth_proxy:
 
 sensor:
   - platform: hlw8012
+    id: power_monitor
     sel_pin:
       number: GPIO20
       inverted: true
