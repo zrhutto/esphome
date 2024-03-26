@@ -4,14 +4,18 @@ substitutions:
   current_res: "0.001"
   # Lower value gives lower voltage readout
   voltage_div: "770"  
+  update_time: 10s
   
 esphome:
   name: "${name}"
-  platform: ESP32
-  board: esp-wrover-kit
+
+esp32:
+  board: esp32def
+  framework:
+    types: esp-idf
   project:
     name: esphome.wyze-plug
-    version: "1.0"
+    version: "1.1"
 
 dashboard_import:
   package_import_url: github://zrhutto/esphome/wyze-plug.yaml@main
@@ -39,7 +43,7 @@ api:
 
 ota:
 
-web_server:
+#web_server:
 
 #  Disable the bluetooth tracker/proxy if they are not needed
 esp32_ble_tracker:
@@ -58,6 +62,7 @@ switch:
     pin:
       number: GPIO15
       inverted: false
+    restore_mode: ALWAYS_ON
     id: relay1
     on_turn_on:
       - light.turn_on: relay1_led
@@ -68,6 +73,7 @@ switch:
     pin:
       number: GPIO32
       inverted: false
+    restore_mode: ALWAYS_ON
     id: relay2
     on_turn_on:
       - light.turn_on: relay2_led
@@ -90,11 +96,13 @@ light:
   - platform: binary
     name: "Relay1 LED"
     id: relay1_led
+    restore_mode: RESTORE_DEFAULT_ON
     internal: true    
     output: relay1_led_gpio
   - platform: binary
     name: "Relay2 LED"
     id: relay2_led
+    restore_mode: RESTORE_DEFAULT_ON
     internal: true
     output: relay2_led_gpio
 
@@ -129,9 +137,7 @@ sensor:
       filters:
         - calibrate_linear:
             - 0.0 -> 0.0
-            - 134 -> 58 
-  - platform: uptime
-    name: ${name} Uptime
+            - 134 -> 58
 
 binary_sensor:
   - platform: gpio
