@@ -5,6 +5,8 @@ substitutions:
   # Lower value gives lower voltage readout
   voltage_div: "770"  
   update_time: 10s
+  relay1RestoreMode: ALWAYS_ON
+  relay2RestoreMode: ALWAYS_ON
   
 esphome:
   name: "${name}"
@@ -62,7 +64,7 @@ switch:
     pin:
       number: GPIO15
       inverted: false
-    restore_mode: ALWAYS_ON
+    restore_mode: ${relay1RestoreMode}
     id: relay1
     on_turn_on:
       - light.turn_on: relay1_led
@@ -73,7 +75,7 @@ switch:
     pin:
       number: GPIO32
       inverted: false
-    restore_mode: ALWAYS_ON
+    restore_mode: ${relay2RestoreMode}
     id: relay2
     on_turn_on:
       - light.turn_on: relay2_led
