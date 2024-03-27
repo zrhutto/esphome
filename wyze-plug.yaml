@@ -10,14 +10,14 @@ substitutions:
   
 esphome:
   name: "${name}"
-
-esp32:
-  board: esp32def
-  framework:
-    types: esp-idf
   project:
     name: esphome.wyze-plug
-    version: "1.1"
+    version: "1.1.1"
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
 
 dashboard_import:
   package_import_url: github://zrhutto/esphome/wyze-plug.yaml@main
